@@ -1,0 +1,140 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MyFrame extends JFrame{ 
+	private JButton profileButton;
+	private JButton mapButton;
+	private JButton dietButton;
+	private JButton financeButton;
+	private JButton reviewButton;
+	private JButton locationButton;
+	private JPanel menuPanel;
+	private JPanel displayPanel;
+	private ActionHandlerClass handler;
+	public JTextField displayField;
+	
+	public MyFrame(){
+		
+	handler = new ActionHandlerClass();
+	
+	menuPanel = new JPanel();
+	menuPanel.setBackground(Color.blue);
+	menuPanel.setPreferredSize(new Dimension(100, 100));
+	menuPanel.add(new JLabel("Menu"));
+	
+	displayPanel = new JPanel();
+	displayPanel.setBackground(Color.green);
+	displayPanel.setPreferredSize(new Dimension(400, 300));
+	displayPanel.add(new JLabel("Welcome to University Card Application"));
+		
+	profileButton = new JButton("Profile");
+	//profileButton.setSize(20,30);
+	profileButton.setActionCommand( "View Profile");
+	//profileButton.setPreferredSize(new Dimension(40, 50));
+	profileButton.addActionListener(handler);
+	menuPanel.add(profileButton);  //profile button
+	
+	mapButton = new JButton("Map");
+	//mapButton.setSize(20,30);
+	mapButton.setActionCommand( "View Map");
+	mapButton.addActionListener(handler);
+	menuPanel.add(mapButton);  //profile button
+	// Add contents to the frame
+	add (menuPanel, BorderLayout.WEST);   
+	
+   	dietButton = new JButton("Diet Info");
+   	dietButton.setActionCommand( "View Dietray Info");
+	dietButton.addActionListener(handler);
+	menuPanel.add(dietButton);  //profile button
+	// Add contents to the frame
+	add (menuPanel, BorderLayout.WEST);
+  
+  	financeButton = new JButton("Financials");
+  	financeButton.setActionCommand( "View Expense Details");
+  	financeButton.addActionListener(handler);
+	menuPanel.add(financeButton);  //profile button
+	// Add contents to the frame
+	add (menuPanel, BorderLayout.WEST);
+ 
+ 	reviewButton = new JButton("Reviews");
+ 	reviewButton.setActionCommand( "View reviews");	
+ 	reviewButton.addActionListener(handler);
+	menuPanel.add( reviewButton);  //profile button
+	// Add contents to the frame
+	add (menuPanel, BorderLayout.WEST);
+	
+	locationButton = new JButton("Locations");
+	locationButton.setActionCommand( "View location details");	
+	locationButton.addActionListener(handler);
+	menuPanel.add( locationButton);  //profile button
+	
+	
+	// Add contents to the frame
+	add (menuPanel, BorderLayout.WEST);
+	add (displayPanel, BorderLayout.EAST);
+	
+}
+	//***********************************************************************************************
+	
+	public class ActionHandlerClass implements ActionListener { 
+	       
+     
+	    public ActionHandlerClass() {
+	    	
+	    }
+	       
+	   	    	public void actionPerformed(ActionEvent e) { 
+	    		  String command = e.getActionCommand();
+	    		
+              if("View Profile".equals(command)) {
+           	      displayField.setText("First Name");
+            	  System.out.println("I am in profile");
+              }
+            	  
+            	  else if("View Map".equals(command)) {
+                 	    //displayField.setText("View Profile");
+                  	  System.out.println("I am in map section");
+            	  }
+                  	  
+                  	else if("View Dietray Info".equals(command)) {
+                 	    //displayField.setText("View Profile");
+                  	  System.out.println("I am in View Dietray Info");
+                  	}
+                  	  
+                  	else if("View Expense Details".equals(command)) {
+                 	    //displayField.setText("View Profile");
+                  	  System.out.println("I am in View Expense Details");
+                  	}
+                  	  
+                  	else if("View reviews".equals(command)) {
+                 	    //displayField.setText("View Profile");
+                  	  System.out.println("I am in View reviews");
+                  	}
+                  	  
+                  	else if("View location details".equals(command)) {
+                 	    //displayField.setText("View Profile");
+                  	  System.out.println("I am in View location details");
+                  	
+              
+	    		}
+	    	
+	    }
+	}
+
+//****************************************************************************************************
+	
+	
+	public static void main(String[] args){
+		MyFrame vendingMachineframe = new MyFrame();
+		vendingMachineframe.setTitle("University Vending Machine");
+		vendingMachineframe.setSize(500,400);
+		vendingMachineframe.setLocationRelativeTo(null);
+		vendingMachineframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		vendingMachineframe.setVisible(true);
+		
+		}
+}
